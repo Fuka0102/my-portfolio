@@ -2,10 +2,10 @@
 
 .works-preview {
   background-color: $color-gray-bg;
-  padding: 100px 40px;
+  padding: 100px 0;
 
   @include sp {
-    padding: 70px 20px;
+    padding: 70px 0;
   }
 }
 

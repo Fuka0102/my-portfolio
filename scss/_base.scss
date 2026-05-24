@@ -42,3 +42,13 @@ button {
   background: none;
   font: inherit;
 }
+
+.inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 40px;
+
+  @include sp {
+    padding: 0 20px;
+  }
+}

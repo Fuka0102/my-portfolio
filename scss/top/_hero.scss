@@ -12,6 +12,10 @@
   background-color: $color-white;
 }
 
+.hero .inner {
+  display: contents;
+}
+
 .hero__bubbles {
   position: absolute;
   inset: 0;
