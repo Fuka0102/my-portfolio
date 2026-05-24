@@ -19,7 +19,7 @@
   position: absolute;
   width: 80px;
   height: 80px;
-  background-color: $color-blue;
+  background-color: $color-orange;
   border-radius: 50%;
   top: -20px;
   left: -24px;
@@ -45,66 +45,106 @@
   color: $color-text;
 }
 
+// Timeline container: vertical line runs through dot centers
 .experience__timeline {
   max-width: 800px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+  position: relative;
 }
 
 .experience__item {
   display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 32px;
-  padding-bottom: 40px;
+  grid-template-columns: 120px 1fr;
+  gap: 48px;
   position: relative;
+  padding-bottom: 56px;
+  align-items: start;
 
+  // Vertical line connecting dots
   &:not(:last-child)::after {
     content: '';
     position: absolute;
-    left: 140px;
-    top: 32px;
+    // Center of the dot: left col(120px) + gap(48px)/2 - 0.5px
+    left: 143px;
+    top: 108px; // below the dot (top of dot ~96px, height 14px → center 103px, plus a bit)
     bottom: 0;
     width: 1px;
-    background: rgba($color-text, 0.1);
-
-    @include sp {
-      left: 50%;
-      top: auto;
-      bottom: auto;
-      width: auto;
-    }
+    background: rgba($color-text, 0.12);
   }
 
   @include sp {
     grid-template-columns: 1fr;
-    gap: 12px;
-    padding-bottom: 32px;
+    gap: 16px;
+    padding-bottom: 40px;
+
+    &:not(:last-child)::after {
+      display: none;
+    }
   }
 }
 
-.experience__date-wrap {
+// Left column: date text + dot (stacked vertically, bottom-aligned to timeline line)
+.experience__meta {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  padding-top: 2px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  padding-top: 4px;
 
   @include sp {
+    flex-direction: row;
     align-items: center;
+    gap: 12px;
+  }
+}
+
+.experience__date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+
+  @include sp {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 6px;
+  }
+}
+
+.experience__year {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1;
+  color: $color-text;
+  letter-spacing: -0.02em;
+
+  @include sp {
+    font-size: 32px;
+  }
+}
+
+.experience__month {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 16px;
+  color: $color-text-light;
+  letter-spacing: 0.05em;
+
+  @include sp {
+    font-size: 14px;
   }
 }
 
 .experience__dot {
-  width: 10px;
-  height: 10px;
+  width: 14px;
+  height: 14px;
   background-color: $color-blue;
   border-radius: 50%;
   flex-shrink: 0;
-  margin-top: 4px;
   animation: dotPulse 2.5s ease-in-out infinite;
 
   @include sp {
-    margin-top: 0;
+    // SP: dots are inline in the meta row
   }
 }
 
@@ -119,19 +159,7 @@
   }
 }
 
-.experience__date {
-  font-family: $font-heading;
-  font-weight: 600;
-  font-size: 14px;
-  color: $color-text-light;
-  line-height: 1.4;
-  white-space: nowrap;
-
-  @include sp {
-    font-size: 13px;
-  }
-}
-
+// Right column: card
 .experience__card {
   background-color: $color-white;
   border-radius: 16px;
