@@ -1,4 +1,4 @@
-import { initBubbles } from './bubbles.js';
+import { initMetaball } from './metaball.js';
 import { initMorphing } from './morphing.js';
 import { initTimeline } from './timeline.js';
 
@@ -46,8 +46,9 @@ function initHeader() {
 function initAll() {
   initHeader();
 
-  const bubblesContainer = document.querySelector('.js-bubbles');
-  if (bubblesContainer) initBubbles(bubblesContainer);
+  const metaballCanvas = document.querySelector('.js-metaball-canvas');
+  const heroSection    = document.querySelector('.js-hero');
+  if (metaballCanvas && heroSection) initMetaball(metaballCanvas, heroSection);
 
   const morphCards = document.querySelectorAll('.js-morph-card');
   if (morphCards.length) initMorphing(Array.from(morphCards));
