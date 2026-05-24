@@ -1,4 +1,4 @@
-function initBubbles(container) {
+export function initBubbles(container) {
   const bubbles = [
     { size: 320, x: -80, y: -100, duration: 18, delay: 0 },
     { size: 200, x: 75, y: -60, duration: 22, delay: -5 },

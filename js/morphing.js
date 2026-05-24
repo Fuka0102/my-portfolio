@@ -15,7 +15,7 @@ const MORPH_PATHS = [
 
 const MORPH_COLORS = ['#5BC4E8', '#FF8C42', '#9B6DFF'];
 
-function initMorphing(cards) {
+export function initMorphing(cards) {
   cards.forEach((card, i) => {
     const svgEl = card.querySelector('.js-morph-svg');
     if (!svgEl) return;
