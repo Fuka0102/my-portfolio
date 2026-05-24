@@ -1,0 +1,159 @@
+@use '../variables' as *;
+
+.experience {
+  background-color: $color-gray-bg;
+  padding: 100px 40px;
+
+  @include sp {
+    padding: 70px 20px;
+  }
+}
+
+.experience__heading-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 56px;
+}
+
+.experience__heading-dot {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: $color-blue;
+  border-radius: 50%;
+  top: -20px;
+  left: -24px;
+  z-index: 0;
+  opacity: 0.6;
+
+  @include sp {
+    width: 56px;
+    height: 56px;
+    top: -14px;
+    left: -16px;
+  }
+}
+
+.experience__heading {
+  position: relative;
+  z-index: 1;
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: $color-text;
+}
+
+.experience__timeline {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.experience__item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 32px;
+  padding-bottom: 40px;
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 140px;
+    top: 32px;
+    bottom: 0;
+    width: 1px;
+    background: rgba($color-text, 0.1);
+
+    @include sp {
+      left: 50%;
+      top: auto;
+      bottom: auto;
+      width: auto;
+    }
+  }
+
+  @include sp {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding-bottom: 32px;
+  }
+}
+
+.experience__date-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-top: 2px;
+
+  @include sp {
+    align-items: center;
+  }
+}
+
+.experience__dot {
+  width: 10px;
+  height: 10px;
+  background-color: $color-blue;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 4px;
+  animation: dotPulse 2.5s ease-in-out infinite;
+
+  @include sp {
+    margin-top: 0;
+  }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience__dot {
+    animation: none;
+  }
+}
+
+.experience__date {
+  font-family: $font-heading;
+  font-weight: 600;
+  font-size: 14px;
+  color: $color-text-light;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  @include sp {
+    font-size: 13px;
+  }
+}
+
+.experience__card {
+  background-color: $color-white;
+  border-radius: 16px;
+  padding: 24px 28px;
+
+  @include sp {
+    padding: 20px;
+  }
+}
+
+.experience__card-title {
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: 16px;
+  color: $color-text;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.experience__card-text {
+  font-family: $font-body;
+  font-size: 13px;
+  color: $color-text-light;
+  line-height: 1.8;
+}

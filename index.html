@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TANAKA FUKA | Portfolio</title>
+  <meta name="description" content="田中楓香のポートフォリオ。Webデザイナー・デベロッパーとして制作した作品を掲載しています。" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/top.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header js-header">
+    <a class="header__logo" href="/">
+      <span class="header__logo-icon">T</span>
+      TANAKA FUKA
+    </a>
+    <nav class="header__nav">
+      <a class="header__nav-link" href="#works">My Works</a>
+      <a class="header__nav-link" href="#about">About Me</a>
+      <a class="header__nav-link" href="#experience">My Experiences</a>
+    </nav>
+    <a class="header__contact-btn" href="#contact">Contact</a>
+    <a class="header__mail-icon" href="mailto:tanakafuka0102@gmail.com" aria-label="メールで連絡する">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+    </a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero js-hero" id="hero">
+    <div class="hero__bubbles js-bubbles" aria-hidden="true"></div>
+    <div class="hero__content">
+      <div class="hero__name-wrap">
+        <span class="hero__name-dot" aria-hidden="true"></span>
+        <h1 class="hero__name">TANAKA FUKA</h1>
+      </div>
+      <div class="hero__sub">
+        <p class="hero__portfolio">Portfolio</p>
+        <div class="hero__roles">
+          <span class="hero__role">web designer</span>
+          <span class="hero__role">developer</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero__scroll" aria-hidden="true">
+      <span class="hero__scroll-text">SCROLL</span>
+      <span class="hero__scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- My Works Preview -->
+  <section class="works-preview" id="works">
+    <div class="works-preview__heading-wrap">
+      <span class="works-preview__heading-dot" aria-hidden="true"></span>
+      <h2 class="works-preview__heading">My Works</h2>
+    </div>
+    <div class="works-preview__grid">
+      <a class="works-preview__card" href="works.html#work-01">
+        <img
+          class="works-preview__card-thumb"
+          src="images/work-01-thumb.jpg"
+          alt="LP制作サンプル"
+          width="600"
+          height="338"
+        />
+        <div class="works-preview__card-body">
+          <div class="works-preview__card-tags">
+            <span class="works-preview__card-tag">LP</span>
+          </div>
+          <p class="works-preview__card-title">サービス紹介ランディングページ</p>
+          <p class="works-preview__card-desc">コンバージョンを意識したシングルページのLP。レスポンシブ対応。</p>
+          <div class="works-preview__card-techs">
+            <span class="works-preview__card-tech">HTML</span>
+            <span class="works-preview__card-tech">CSS</span>
+            <span class="works-preview__card-tech">JavaScript</span>
+          </div>
+        </div>
+      </a>
+      <a class="works-preview__card" href="works.html#work-02">
+        <img
+          class="works-preview__card-thumb"
+          src="images/work-02-thumb.jpg"
+          alt="バナーデザインサンプル"
+          width="600"
+          height="338"
+        />
+        <div class="works-preview__card-body">
+          <div class="works-preview__card-tags">
+            <span class="works-preview__card-tag">バナー</span>
+          </div>
+          <p class="works-preview__card-title">SNS広告バナーセット</p>
+          <p class="works-preview__card-desc">Instagram・X向けに複数サイズを展開。ブランドガイドラインに準拠。</p>
+          <div class="works-preview__card-techs">
+            <span class="works-preview__card-tech">Figma</span>
+            <span class="works-preview__card-tech">Photoshop</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- About Me -->
+  <section class="about" id="about">
+    <div class="about__heading-wrap">
+      <span class="about__heading-dot" aria-hidden="true"></span>
+      <h2 class="about__heading">About Me</h2>
+    </div>
+    <div class="about__intro">
+      <div class="about__name">
+        田中 楓香
+        <span class="about__name-en">TANAKA FUKA</span>
+      </div>
+      <p class="about__text">
+        Webデザイナー・フロントエンドデベロッパーとして、デザインから実装までを一貫して担当しています。<br />
+        ユーザーにとって使いやすく、ブランドの魅力を引き出すWebサイト制作を得意としています。<br />
+        WordPressやHTML/CSSによるコーディング、FigmaやPhotoshopを用いたデザイン制作など、幅広いスキルを活かして制作に取り組んでいます。
+      </p>
+    </div>
+
+    <div class="about__cards">
+      <div class="about__card js-morph-card">
+        <p class="about__card-number">01</p>
+        <svg class="about__card-svg js-morph-svg" aria-hidden="true"></svg>
+        <p class="about__card-title">Design<br />First</p>
+        <p class="about__card-text">見た目の美しさだけでなく、情報の伝わりやすさを重視したデザインを心がけています。</p>
+      </div>
+      <div class="about__card js-morph-card">
+        <p class="about__card-number">02</p>
+        <svg class="about__card-svg js-morph-svg" aria-hidden="true"></svg>
+        <p class="about__card-title">Clean<br />Code</p>
+        <p class="about__card-text">保守しやすく、将来の拡張にも対応できる、読みやすいコードの記述を意識しています。</p>
+      </div>
+      <div class="about__card js-morph-card">
+        <p class="about__card-number">03</p>
+        <svg class="about__card-svg js-morph-svg" aria-hidden="true"></svg>
+        <p class="about__card-title">User<br />Centric</p>
+        <p class="about__card-text">ユーザーの視点に立ち、直感的で使いやすいUIを追求しています。</p>
+      </div>
+    </div>
+
+    <div class="about__skills-section">
+      <p class="about__skills-heading">SKILLS &amp; TOOLS</p>
+      <div class="about__tools">
+        <div class="about__tool">
+          <span>HTML</span>
+        </div>
+        <div class="about__tool">
+          <span>CSS</span>
+        </div>
+        <div class="about__tool">
+          <span>JavaScript</span>
+        </div>
+        <div class="about__tool">
+          <span>TypeScript</span>
+        </div>
+        <div class="about__tool">
+          <span>WordPress</span>
+        </div>
+        <div class="about__tool">
+          <span>Git</span>
+        </div>
+        <div class="about__tool">
+          <span>Claude</span>
+        </div>
+        <div class="about__tool">
+          <span>Figma</span>
+        </div>
+        <div class="about__tool">
+          <span>Photoshop</span>
+        </div>
+        <div class="about__tool">
+          <span>Canva</span>
+        </div>
+        <div class="about__tool">
+          <span>Wix</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- My Experiences -->
+  <section class="experience" id="experience">
+    <div class="experience__heading-wrap">
+      <span class="experience__heading-dot" aria-hidden="true"></span>
+      <h2 class="experience__heading">My Experiences</h2>
+    </div>
+    <div class="experience__timeline js-timeline">
+      <div class="experience__item">
+        <div class="experience__date-wrap">
+          <span class="experience__dot js-timeline-dot" aria-hidden="true"></span>
+          <p class="experience__date">2024.04</p>
+        </div>
+        <div class="experience__card">
+          <p class="experience__card-title">Webデザイン学習開始</p>
+          <p class="experience__card-text">HTML・CSS・JavaScriptの基礎を独学でスタート。Figmaによるデザイン制作も並行して学ぶ。</p>
+        </div>
+      </div>
+      <div class="experience__item">
+        <div class="experience__date-wrap">
+          <span class="experience__dot js-timeline-dot" aria-hidden="true"></span>
+          <p class="experience__date">2024.07</p>
+        </div>
+        <div class="experience__card">
+          <p class="experience__card-title">フリーランス案件受注開始</p>
+          <p class="experience__card-text">LP制作・バナーデザインなど、小規模な案件を受注。実際のクライアントワークを経験。</p>
+        </div>
+      </div>
+      <div class="experience__item">
+        <div class="experience__date-wrap">
+          <span class="experience__dot js-timeline-dot" aria-hidden="true"></span>
+          <p class="experience__date">2024.10</p>
+        </div>
+        <div class="experience__card">
+          <p class="experience__card-title">WordPressサイト制作</p>
+          <p class="experience__card-text">テーマカスタマイズ・オリジナルテーマ開発に取り組み、CMSを活用したサイト制作スキルを習得。</p>
+        </div>
+      </div>
+      <div class="experience__item">
+        <div class="experience__date-wrap">
+          <span class="experience__dot js-timeline-dot" aria-hidden="true"></span>
+          <p class="experience__date">2025.01</p>
+        </div>
+        <div class="experience__card">
+          <p class="experience__card-title">TypeScript・React学習</p>
+          <p class="experience__card-text">フロントエンド開発の幅を広げるため、TypeScriptおよびReactの学習を開始。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact__heading-wrap">
+      <span class="contact__heading-dot" aria-hidden="true"></span>
+      <h2 class="contact__heading">Contact</h2>
+    </div>
+    <div class="contact__body">
+      <p class="contact__text">
+        お仕事のご依頼・ご相談はお気軽にご連絡ください。<br />
+        デザインから実装まで、幅広く対応しております。
+      </p>
+      <a class="contact__btn" href="mailto:tanakafuka0102@gmail.com">
+        <svg class="contact__btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        Contact Here
+      </a>
+    </div>
+    <footer class="contact__footer">
+      <p>© 2026 TANAKA FUKA</p>
+    </footer>
+  </section>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

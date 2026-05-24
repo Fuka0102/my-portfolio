@@ -1,0 +1,5 @@
+.mcp.json
+.history/
+.claude/settings.local.json
+css/
+node_modules/

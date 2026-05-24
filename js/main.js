@@ -1,0 +1,63 @@
+import { initBubbles } from './bubbles.js';
+import { initMorphing } from './morphing.js';
+import { initTimeline } from './timeline.js';
+
+function initHeader() {
+  const header = document.querySelector('.js-header');
+  if (!header) return;
+
+  const isSp = () => window.innerWidth < 768;
+
+  let scrollTimer = null;
+  let lastScrollY = window.scrollY;
+
+  const hero = document.querySelector('.js-hero');
+  const heroBottom = () => hero ? hero.getBoundingClientRect().bottom + window.scrollY : 0;
+
+  function updateHeaderVisibility() {
+    if (!isSp()) {
+      header.classList.remove('is-hidden');
+      return;
+    }
+
+    const pastHero = window.scrollY > heroBottom() - 80;
+    if (!pastHero) {
+      header.classList.remove('is-hidden');
+      return;
+    }
+
+    const isScrolling = lastScrollY !== window.scrollY;
+    lastScrollY = window.scrollY;
+
+    if (isScrolling) {
+      header.classList.add('is-hidden');
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(() => {
+        header.classList.remove('is-hidden');
+      }, 300);
+    }
+  }
+
+  window.addEventListener('scroll', updateHeaderVisibility, { passive: true });
+  window.addEventListener('resize', updateHeaderVisibility);
+  updateHeaderVisibility();
+}
+
+function initAll() {
+  initHeader();
+
+  const bubblesContainer = document.querySelector('.js-bubbles');
+  if (bubblesContainer) initBubbles(bubblesContainer);
+
+  const morphCards = document.querySelectorAll('.js-morph-card');
+  if (morphCards.length) initMorphing(Array.from(morphCards));
+
+  const timelineContainer = document.querySelector('.js-timeline');
+  if (timelineContainer) initTimeline(timelineContainer);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initAll);
+} else {
+  initAll();
+}

@@ -1,0 +1,31 @@
+// Colors
+$color-blue: #5BC4E8;
+$color-green: #7ED957;
+$color-orange: #FF8C42;
+$color-purple: #9B6DFF;
+$color-white: #FFFFFF;
+$color-gray-bg: #F5F5F5;
+$color-text: #1A1A1A;
+$color-text-light: #666666;
+
+// Fonts
+$font-heading: 'Bricolage Grotesque', sans-serif;
+$font-body: 'Noto Sans JP', sans-serif;
+$font-tools: 'DM Sans', sans-serif;
+
+// Breakpoints
+$bp-sp: 767px;
+$bp-pc: 768px;
+
+// Mixins
+@mixin sp {
+  @media (max-width: $bp-sp) {
+    @content;
+  }
+}
+
+@mixin pc {
+  @media (min-width: $bp-pc) {
+    @content;
+  }
+}

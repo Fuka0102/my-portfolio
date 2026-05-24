@@ -1,0 +1,101 @@
+@use 'variables' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+
+  @include sp {
+    padding: 16px 20px;
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+  }
+}
+
+.header__logo {
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header__logo-icon {
+  width: 28px;
+  height: 28px;
+  background-color: $color-blue;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+
+  @include sp {
+    display: none;
+  }
+}
+
+.header__nav-link {
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.header__contact-btn {
+  font-family: $font-heading;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-white;
+  background-color: $color-text;
+  padding: 10px 20px;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s;
+
+  @include sp {
+    display: none;
+  }
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.header__mail-icon {
+  display: none;
+
+  @include sp {
+    display: flex;
+    align-items: center;
+    color: $color-text;
+    font-size: 20px;
+  }
+}

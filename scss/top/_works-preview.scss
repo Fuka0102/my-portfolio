@@ -1,0 +1,132 @@
+@use '../variables' as *;
+
+.works-preview {
+  background-color: $color-gray-bg;
+  padding: 100px 40px;
+
+  @include sp {
+    padding: 70px 20px;
+  }
+}
+
+.works-preview__heading-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 56px;
+}
+
+.works-preview__heading-dot {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: $color-green;
+  border-radius: 50%;
+  top: -20px;
+  left: -24px;
+  z-index: 0;
+  opacity: 0.6;
+
+  @include sp {
+    width: 56px;
+    height: 56px;
+    top: -14px;
+    left: -16px;
+  }
+}
+
+.works-preview__heading {
+  position: relative;
+  z-index: 1;
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: $color-text;
+}
+
+.works-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  max-width: 1000px;
+
+  @include sp {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.works-preview__card {
+  background-color: $color-white;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.works-preview__card-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: $color-gray-bg;
+  object-fit: cover;
+}
+
+.works-preview__card-body {
+  padding: 20px;
+}
+
+.works-preview__card-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.works-preview__card-tag {
+  font-family: $font-tools;
+  font-size: 11px;
+  font-weight: 500;
+  color: $color-white;
+  background-color: $color-text;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+}
+
+.works-preview__card-title {
+  font-family: $font-body;
+  font-weight: 700;
+  font-size: 16px;
+  color: $color-text;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.works-preview__card-desc {
+  font-family: $font-body;
+  font-size: 13px;
+  color: $color-text-light;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.works-preview__card-techs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.works-preview__card-tech {
+  font-family: $font-tools;
+  font-size: 11px;
+  color: $color-text-light;
+  background-color: $color-gray-bg;
+  padding: 3px 10px;
+  border-radius: 100px;
+}

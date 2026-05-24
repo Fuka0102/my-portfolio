@@ -1,0 +1,101 @@
+@use '../variables' as *;
+
+.contact {
+  background-color: $color-white;
+  padding: 100px 40px 0;
+
+  @include sp {
+    padding: 70px 20px 0;
+  }
+}
+
+.contact__heading-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 48px;
+}
+
+.contact__heading-dot {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background-color: $color-purple;
+  border-radius: 50%;
+  top: -20px;
+  left: -24px;
+  z-index: 0;
+  opacity: 0.6;
+
+  @include sp {
+    width: 56px;
+    height: 56px;
+    top: -14px;
+    left: -16px;
+  }
+}
+
+.contact__heading {
+  position: relative;
+  z-index: 1;
+  font-family: $font-heading;
+  font-weight: 800;
+  font-size: clamp(36px, 6vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: $color-text;
+}
+
+.contact__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 80px 0;
+
+  @include sp {
+    padding: 48px 0;
+  }
+}
+
+.contact__text {
+  font-family: $font-body;
+  font-size: 15px;
+  color: $color-text-light;
+  line-height: 1.9;
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+
+.contact__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: $font-heading;
+  font-weight: 700;
+  font-size: 16px;
+  color: $color-white;
+  background-color: $color-text;
+  padding: 18px 36px;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.75;
+  }
+}
+
+.contact__btn-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.contact__footer {
+  text-align: center;
+  padding: 32px 0;
+  border-top: 1px solid rgba($color-text, 0.08);
+  font-family: $font-heading;
+  font-size: 12px;
+  color: $color-text-light;
+  letter-spacing: 0.1em;
+}
