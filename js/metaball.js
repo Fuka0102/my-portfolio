@@ -22,18 +22,56 @@ export function initMetaball(canvas, container) {
   const MAX_SPEED = 0.55;
   const NOISE_AMP = 0.014;
 
+  const offOuter  = document.createElement('canvas');
+  const offOutCtx = offOuter.getContext('2d');
   const offscreen = document.createElement('canvas');
   const offCtx    = offscreen.getContext('2d');
+  const tmpOuter  = document.createElement('canvas');
+  const tmpOutCtx = tmpOuter.getContext('2d');
+  const tmp       = document.createElement('canvas');
+  const tmpCtx    = tmp.getContext('2d');
+
+  function syncSize(c, W, H) {
+    if (c.width !== W || c.height !== H) { c.width = W; c.height = H; }
+  }
 
   function draw() {
     const W = canvas.width, H = canvas.height;
-    if (offscreen.width !== W || offscreen.height !== H) {
-      offscreen.width = W; offscreen.height = H;
-    }
+    syncSize(offOuter, W, H);
+    syncSize(offscreen, W, H);
+    syncSize(tmpOuter, W, H);
+    syncSize(tmp, W, H);
 
     ctx.clearRect(0, 0, W, H);
 
-    // メタボール本体（offscreen threshold）
+    // 外側リング（薄い青・大きめ半径）
+    offOutCtx.clearRect(0, 0, W, H);
+    for (const b of blobs) {
+      const g = offOutCtx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r * 1.72);
+      g.addColorStop(0,   'rgba(255,255,255,1)');
+      g.addColorStop(0.5, 'rgba(255,255,255,1)');
+      g.addColorStop(1,   'rgba(255,255,255,0)');
+      offOutCtx.fillStyle = g;
+      offOutCtx.beginPath();
+      offOutCtx.arc(b.x, b.y, b.r * 1.72, 0, Math.PI * 2);
+      offOutCtx.fill();
+    }
+    const outerData = offOutCtx.getImageData(0, 0, W, H);
+    const od = outerData.data;
+    for (let i = 3; i < od.length; i += 4) {
+      od[i] = od[i] > 128 ? 255 : 0;
+    }
+    offOutCtx.putImageData(outerData, 0, 0);
+
+    tmpOutCtx.clearRect(0, 0, W, H);
+    tmpOutCtx.globalCompositeOperation = 'source-over';
+    tmpOutCtx.fillStyle = 'rgba(75,184,250, 0.30)';
+    tmpOutCtx.fillRect(0, 0, W, H);
+    tmpOutCtx.globalCompositeOperation = 'destination-in';
+    tmpOutCtx.drawImage(offOuter, 0, 0);
+    ctx.drawImage(tmpOuter, 0, 0);
+
+    // 内側本体（濃い青・通常半径）
     offCtx.clearRect(0, 0, W, H);
     for (const b of blobs) {
       const g = offCtx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r * 1.45);
@@ -45,7 +83,6 @@ export function initMetaball(canvas, container) {
       offCtx.arc(b.x, b.y, b.r * 1.45, 0, Math.PI * 2);
       offCtx.fill();
     }
-
     const imgData = offCtx.getImageData(0, 0, W, H);
     const data    = imgData.data;
     for (let i = 3; i < data.length; i += 4) {
@@ -53,15 +90,13 @@ export function initMetaball(canvas, container) {
     }
     offCtx.putImageData(imgData, 0, 0);
 
-    const tmp    = document.createElement('canvas');
-    tmp.width = W; tmp.height = H;
-    const tmpCtx = tmp.getContext('2d');
-    tmpCtx.fillStyle = 'rgba(56,189,248, 0.52)';
+    tmpCtx.clearRect(0, 0, W, H);
+    tmpCtx.globalCompositeOperation = 'source-over';
+    tmpCtx.fillStyle = 'rgba(75,184,250, 0.50)';
     tmpCtx.fillRect(0, 0, W, H);
     tmpCtx.globalCompositeOperation = 'destination-in';
     tmpCtx.drawImage(offscreen, 0, 0);
     ctx.drawImage(tmp, 0, 0);
-
   }
 
   function update() {
