@@ -18,6 +18,7 @@ body {
   background-color: $color-white;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img {
@@ -49,6 +50,6 @@ button {
   padding: 0 40px;
 
   @include sp {
-    padding: 0 20px;
+    padding-inline: 10px;
   }
 }
