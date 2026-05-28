@@ -162,6 +162,7 @@
   background-color: $color-blue;
   flex-shrink: 0;
   will-change: opacity;
+  box-shadow: 0 0 0 4px #F5F5F5;
 }
 
 // Current (→ now) row: larger dot + ring + pulse animation
