@@ -14,7 +14,8 @@
 .experience__heading-wrap {
   position: relative;
   display: inline-block;
-  margin-bottom: 56px;
+  margin-bottom: 64px;
+  transform: translateX(calc(clamp(56px, 7.5vw, 106px) / 2));
 
   @include sp {
     margin-bottom: 40px;
@@ -23,21 +24,14 @@
 
 .experience__heading-dot {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: clamp(56px, 7.5vw, 106px);
+  height: clamp(56px, 7.5vw, 106px);
   background-color: $color-orange;
   border-radius: 50%;
-  top: -20px;
-  left: -24px;
+  left: 0;
+  bottom: 0;
+  transform: translateX(-50%);
   z-index: 0;
-  opacity: 0.6;
-
-  @include sp {
-    width: 56px;
-    height: 56px;
-    top: -14px;
-    left: -16px;
-  }
 }
 
 .experience__heading {
@@ -45,7 +39,7 @@
   z-index: 1;
   font-family: $font-heading;
   font-weight: 800;
-  font-size: clamp(36px, 6vw, 64px);
+  font-size: clamp(40px, 5.5vw, 80px);
   line-height: 1;
   letter-spacing: -0.02em;
   color: $color-text;

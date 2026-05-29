@@ -9,29 +9,29 @@
   }
 }
 
+// ─── Heading ─────────────────────────────────────────────
+
 .contact__heading-wrap {
   position: relative;
   display: inline-block;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
+  transform: translateX(calc(clamp(56px, 7.5vw, 106px) / 2));
+
+  @include sp {
+    margin-bottom: 40px;
+  }
 }
 
 .contact__heading-dot {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: clamp(56px, 7.5vw, 106px);
+  height: clamp(56px, 7.5vw, 106px);
   background-color: $color-purple;
   border-radius: 50%;
-  top: -20px;
-  left: -24px;
+  left: 0;
+  bottom: 0;
+  transform: translateX(-50%);
   z-index: 0;
-  opacity: 0.6;
-
-  @include sp {
-    width: 56px;
-    height: 56px;
-    top: -14px;
-    left: -16px;
-  }
 }
 
 .contact__heading {
@@ -39,11 +39,13 @@
   z-index: 1;
   font-family: $font-heading;
   font-weight: 800;
-  font-size: clamp(36px, 6vw, 64px);
+  font-size: clamp(40px, 5.5vw, 80px);
   line-height: 1;
   letter-spacing: -0.02em;
   color: $color-text;
 }
+
+// ─── Body ────────────────────────────────────────────────
 
 .contact__body {
   display: flex;
@@ -59,11 +61,14 @@
 
 .contact__text {
   font-family: $font-body;
-  font-size: 15px;
-  color: $color-text-light;
+  font-size: 16px;
+  color: #4B4B4B;
   line-height: 1.9;
   margin-bottom: 40px;
-  max-width: 480px;
+
+  @include sp {
+    font-size: 14px;
+  }
 }
 
 .contact__btn {
@@ -89,6 +94,8 @@
   width: 20px;
   height: 20px;
 }
+
+// ─── Footer ──────────────────────────────────────────────
 
 .contact__footer {
   text-align: center;
