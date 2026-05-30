@@ -60,8 +60,8 @@
     left: 188px;
     top: 22px;
     bottom: 44px;
-    width: 1px;
-    background-color: rgba($color-text, 0.15);
+    width: 0;
+    border-left: 1px dashed rgba($color-text, 0.3);
   }
 
   @include sp {
@@ -77,11 +77,13 @@
   display: grid;
   grid-template-columns: 160px 24px 1fr;
   column-gap: 16px;
+  align-items: center;
   padding-bottom: 40px;
 
   @include sp {
     grid-template-columns: 24px 1fr;
     grid-template-rows: auto auto;
+    align-items: start;
     column-gap: 16px;
     padding-bottom: 28px;
   }
@@ -90,8 +92,6 @@
 // ─── Year column ─────────────────────────────────────────
 
 .experience__year {
-  padding-top: 2px;
-
   @include sp {
     grid-column: 2;
     grid-row: 1;
@@ -124,11 +124,9 @@
 
 .experience__period {
   display: block;
-  font-family: $font-body;
+  font-family: $font-heading;
   font-size: 12px;
   color: rgba($color-text, 0.4);
-  margin-top: 5px;
-
   @include sp {
     font-size: 11px;
   }
@@ -139,7 +137,6 @@
 .experience__dot-wrap {
   display: flex;
   justify-content: center;
-  padding-top: 24px;
 
   @include sp {
     grid-column: 1;
@@ -156,7 +153,7 @@
   background-color: $color-blue;
   flex-shrink: 0;
   will-change: opacity;
-  box-shadow: 0 0 0 4px #F5F5F5;
+  box-shadow: 0 0 0 4px #E8EDF2;
 }
 
 // Current (→ now) row: larger dot + ring + pulse animation
