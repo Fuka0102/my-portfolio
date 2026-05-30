@@ -1,6 +1,7 @@
 import { initMetaball } from './metaball.js';
 import { initMorphing } from './morphing.js';
 import { initTimeline } from './timeline.js';
+import { initScrollAnimation } from './scroll-animation.js';
 
 function initHeader() {
   const header = document.querySelector('.js-header');
@@ -55,6 +56,8 @@ function initAll() {
 
   const timelineContainer = document.querySelector('.js-timeline');
   if (timelineContainer) initTimeline(timelineContainer);
+
+  initScrollAnimation(document.body);
 }
 
 if (document.readyState === 'loading') {

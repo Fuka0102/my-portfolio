@@ -44,6 +44,29 @@ button {
   font: inherit;
 }
 
+// ─── Scroll fade-in ──────────────────────────────────────
+
+.js-fade {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+// ─── Inner container ─────────────────────────────────────
+
 .inner {
   max-width: 1080px;
   margin: 0 auto;
