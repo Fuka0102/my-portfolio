@@ -237,4 +237,27 @@
   padding-bottom: 8px;
   border-bottom: 1px solid $color-text;
   white-space: nowrap;
+
+  &::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+  }
+
+  &[data-tool='html']::before      { background-image: url('../../images/html.svg'); }
+  &[data-tool='js']::before        { background-image: url('../../images/js.svg'); }
+  &[data-tool='css']::before       { background-image: url('../../images/css.svg'); }
+  &[data-tool='ts']::before        { background-image: url('../../images/ts.svg'); }
+  &[data-tool='wordpress']::before { background-image: url('../../images/wordpress.svg'); }
+  &[data-tool='github']::before    { background-image: url('../../images/github.svg'); }
+  &[data-tool='claude']::before    { background-image: url('../../images/claude.svg'); }
+  &[data-tool='figma']::before     { background-image: url('../../images/figma.svg'); }
+  &[data-tool='photoshop']::before { background-image: url('../../images/photoshop.svg'); }
+  &[data-tool='canva']::before     { background-image: url('../../images/canva.svg'); }
+  &[data-tool='wix']::before       { background-image: url('../../images/wix.svg'); }
 }
