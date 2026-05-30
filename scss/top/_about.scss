@@ -15,7 +15,7 @@
   position: relative;
   display: inline-block;
   margin-bottom: 64px;
-  transform: translateX(calc(clamp(56px, 7.5vw, 106px) / 2));
+  padding-left: calc(clamp(56px, 7.5vw, 106px) / 2);
 
   @include sp {
     margin-bottom: 40px;
