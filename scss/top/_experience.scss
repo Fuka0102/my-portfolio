@@ -161,12 +161,12 @@
   width: 14px;
   height: 14px;
   box-shadow: 0 0 0 4px $color-gray-bg, 0 0 0 6px $color-blue;
-  animation: dotPulse 2.5s ease-in-out infinite;
+  animation: dotPulse 2.5s ease-out infinite;
 }
 
 @keyframes dotPulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
+  0%   { box-shadow: 0 0 0 4px $color-gray-bg, 0 0 0 6px $color-blue, 0 0 0 6px rgba($color-blue, 0.5); }
+  100% { box-shadow: 0 0 0 4px $color-gray-bg, 0 0 0 6px $color-blue, 0 0 0 18px rgba($color-blue, 0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
