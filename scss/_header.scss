@@ -74,12 +74,17 @@
 }
 
 .header__contact-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-family: $font-heading;
   font-size: 14px;
   font-weight: 600;
   color: $color-white;
   background-color: $color-text;
-  padding: 10px 20px;
+  width: 160px;
+  padding-block: 8px;
   border-radius: 100px;
   letter-spacing: 0.03em;
   transition: opacity 0.2s;
@@ -93,13 +98,31 @@
   }
 }
 
+.header__contact-btn-icon {
+  width: 20px;
+  height: 16px;
+}
+
 .header__mail-icon {
   display: none;
 
   @include sp {
     display: flex;
     align-items: center;
-    color: $color-text;
-    font-size: 20px;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background-color: $color-text;
+    border-radius: 50%;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.75;
+    }
   }
+}
+
+.header__mail-icon-img {
+  width: 22px;
+  height: 18px;
 }
