@@ -51,6 +51,10 @@ function initAll() {
   const heroSection    = document.querySelector('.js-hero');
   if (metaballCanvas && heroSection) initMetaball(metaballCanvas, heroSection);
 
+  const contactCanvas  = document.querySelector('.js-contact-canvas');
+  const contactSection = contactCanvas?.closest('section');
+  if (contactCanvas && contactSection) initMetaball(contactCanvas, contactSection);
+
   const morphCards = document.querySelectorAll('.js-morph-card');
   if (morphCards.length) initMorphing(Array.from(morphCards));
 

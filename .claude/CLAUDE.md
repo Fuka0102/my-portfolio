@@ -162,6 +162,7 @@ portfolio/
 ### SCSS命名
 - BEM寄りの命名を心がける（`.hero__title` など）
 - グローバルなクラス名の衝突を避ける
+- margin-bottomの使用を避ける
 
 ### JavaScript設計
 - アニメーション処理は副作用（side effect）として設計し、React移行時に `useEffect` 内へ移植しやすくする

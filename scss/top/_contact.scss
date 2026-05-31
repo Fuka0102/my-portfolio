@@ -1,6 +1,8 @@
 @use '../variables' as *;
 
 .contact {
+  position: relative;
+  overflow: hidden;
   background-color: $color-white;
   padding: 100px 0 0;
 
@@ -9,17 +11,35 @@
   }
 }
 
+.contact__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform;
+}
+
+.contact .inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 80px;
+
+  @include sp {
+    padding-bottom: 56px;
+  }
+}
+
 // ─── Heading ─────────────────────────────────────────────
 
 .contact__heading-wrap {
   position: relative;
   display: inline-block;
-  margin-bottom: 64px;
   padding-left: calc(clamp(56px, 7.5vw, 106px) / 2);
-
-  @include sp {
-    margin-bottom: 40px;
-  }
 }
 
 .contact__heading-dot {
@@ -30,7 +50,6 @@
   border-radius: 50%;
   left: 0;
   bottom: 0;
-  transform: translateX(-50%);
   z-index: 0;
 }
 
@@ -47,31 +66,12 @@
 
 // ─── Body ────────────────────────────────────────────────
 
-.contact__body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 80px 0;
-
-  @include sp {
-    padding: 48px 0;
-  }
-}
-
-.contact__text {
-  font-family: $font-body;
-  font-size: 16px;
-  color: #4B4B4B;
-  line-height: 1.9;
-  margin-bottom: 40px;
-
-  @include sp {
-    font-size: 14px;
-  }
-}
-
 .contact__btn {
+  margin-top: 64px;
+
+  @include sp {
+    margin-top: 40px;
+  }
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -98,6 +98,8 @@
 // ─── Footer ──────────────────────────────────────────────
 
 .contact__footer {
+  position: relative;
+  z-index: 1;
   text-align: center;
   padding: 32px 0;
   border-top: 1px solid rgba($color-text, 0.08);
