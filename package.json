@@ -1,0 +1,24 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass scss/top.scss css/top.css --no-source-map && sass scss/works.scss css/works.css --no-source-map"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fuka0102/my-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Fuka0102/my-portfolio/issues"
+  },
+  "homepage": "https://github.com/Fuka0102/my-portfolio#readme",
+  "devDependencies": {
+    "sass": "^1.100.0"
+  }
+}
