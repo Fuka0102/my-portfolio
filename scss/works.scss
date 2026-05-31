@@ -167,13 +167,12 @@
 .works-detail__card {
   order: 2;
   padding-top: 48px;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
 
   @include sp {
     order: 1;
     padding-top: 0;
-    border-radius: 12px;
   }
 }
 
