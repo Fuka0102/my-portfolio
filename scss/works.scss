@@ -107,6 +107,12 @@
   flex-direction: column;
 }
 
+@include sp {
+  .works-detail--no-btn .works-detail__meta {
+    padding-top: 0;
+  }
+}
+
 // PC order: meta(1) → card(2) → btn(3) → desc(4) → points(5)
 // SP order: card(1) → btn(2) → meta(3) → desc(4) → points(5)
 
