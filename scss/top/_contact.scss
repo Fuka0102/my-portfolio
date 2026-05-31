@@ -67,6 +67,9 @@
 // ─── Body ────────────────────────────────────────────────
 
 .contact__btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   margin-top: 64px;
   display: inline-flex;
   align-items: center;
@@ -75,19 +78,51 @@
   font-weight: 700;
   font-size: 18px;
   color: $color-white;
-  background-color: $color-text;
+  background: transparent;
   padding: 18px 36px;
+  border: 2px solid transparent;
   border-radius: 100px;
   letter-spacing: 0.03em;
-  transition: opacity 0.2s;
+  transition: border-color 0.3s ease;
 
   @include sp {
     margin-top: 40px;
     font-size: 16px;
   }
 
-  &:hover {
-    opacity: 0.75;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $color-text;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #4BB8FA;
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+  }
+}
+
+@media (hover: hover) {
+  .contact__btn:hover {
+    border-color: $color-text;
+  }
+
+  .contact__btn:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
 }
 

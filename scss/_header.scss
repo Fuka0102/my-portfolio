@@ -88,6 +88,9 @@
 }
 
 .header__contact-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -96,19 +99,51 @@
   font-size: 14px;
   font-weight: 600;
   color: $color-white;
-  background-color: $color-text;
+  background: transparent;
   width: 160px;
   padding-block: 8px;
+  border: 2px solid transparent;
   border-radius: 100px;
   letter-spacing: 0.03em;
-  transition: opacity 0.2s;
+  transition: border-color 0.3s ease;
 
   @include sp {
     display: none;
   }
 
-  &:hover {
-    opacity: 0.75;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $color-text;
+    border-radius: inherit;
+    z-index: -1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: #4BB8FA;
+    transform: translate(-50%, -50%) scale(0.1);
+    opacity: 0;
+    z-index: -1;
+    transition: transform 0.5s ease, opacity 0.3s ease;
+  }
+}
+
+@media (hover: hover) {
+  .header__contact-btn:hover {
+    border-color: $color-text;
+  }
+
+  .header__contact-btn:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
   }
 }
 
