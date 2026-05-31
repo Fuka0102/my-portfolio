@@ -157,7 +157,7 @@
 .about__card-content {
   position: relative;
   z-index: 1;
-  padding: 36px 32px;
+  padding: 36px 0;
   text-align: center;
 
   @include sp {
@@ -166,7 +166,7 @@
 }
 
 .about__card-title {
-  font-family: $font-heading;
+  font-family: $font-body;
   font-weight: 700;
   font-size: clamp(18px, 2vw, 22px);
   color: $color-text;
@@ -174,8 +174,9 @@
   margin-bottom: 16px;
   display: flex;
   align-items: baseline;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 8px;
+  font-size: 24px;
 }
 
 .about__card-num {
@@ -184,6 +185,7 @@
   font-size: clamp(18px, 2vw, 22px);
   color: $color-text;
   flex-shrink: 0;
+  font-size: 32px;
 }
 
 .about__card-text {
