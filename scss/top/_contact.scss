@@ -68,16 +68,12 @@
 
 .contact__btn {
   margin-top: 64px;
-
-  @include sp {
-    margin-top: 40px;
-  }
   display: inline-flex;
   align-items: center;
   gap: 10px;
   font-family: $font-heading;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   color: $color-white;
   background-color: $color-text;
   padding: 18px 36px;
@@ -85,14 +81,19 @@
   letter-spacing: 0.03em;
   transition: opacity 0.2s;
 
+  @include sp {
+    margin-top: 40px;
+    font-size: 16px;
+  }
+
   &:hover {
     opacity: 0.75;
   }
 }
 
 .contact__btn-icon {
-  width: 20px;
-  height: 20px;
+  width: 36px;
+  height: 28px;
 }
 
 // ─── Footer ──────────────────────────────────────────────
