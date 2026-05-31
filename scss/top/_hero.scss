@@ -38,6 +38,11 @@
 .hero__name-wrap {
   position: relative;
   display: inline-block;
+  padding-left: calc(clamp(80px, 11vw, 160px) / 2);
+
+  @include sp {
+    padding-left: calc(clamp(50px, 14vw, 80px) / 2);
+  }
 }
 
 .hero__name-dot {
@@ -47,8 +52,7 @@
   background-color: #4BB8FA;
   border-radius: 50%;
   left: 0;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 0;
   z-index: 0;
 
   @include sp {
