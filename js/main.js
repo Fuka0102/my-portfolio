@@ -55,6 +55,15 @@ function initAll() {
   const contactSection = contactCanvas?.closest('section');
   if (contactCanvas && contactSection) initMetaball(contactCanvas, contactSection);
 
+  const worksCanvas = document.querySelector('.js-works-canvas');
+  if (worksCanvas) {
+    const viewportProxy = {
+      get offsetWidth()  { return window.innerWidth; },
+      get offsetHeight() { return window.innerHeight; },
+    };
+    initMetaball(worksCanvas, viewportProxy);
+  }
+
   const morphCards = document.querySelectorAll('.js-morph-card');
   if (morphCards.length) initMorphing(Array.from(morphCards));
 
