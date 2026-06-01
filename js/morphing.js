@@ -16,38 +16,60 @@ const MORPH_CONFIGS = [
   },
 ];
 
+function extractNumbers(pathStr) {
+  return pathStr.match(/-?[\d.]+/g).map(Number);
+}
+
+function buildPath(template, numbers) {
+  let i = 0;
+  return template.replace(/-?[\d.]+/g, () => numbers[i++].toFixed(2));
+}
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function easeInOut(t) {
+  return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+}
+
 export function initMorphing(cards) {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
   cards.forEach((card, i) => {
     const svgEl = card.querySelector('.js-morph-svg');
     if (!svgEl) return;
 
     const cfg = MORPH_CONFIGS[i % MORPH_CONFIGS.length];
-    const duration = 4 + i * 0.8;
+    const duration = (4 + i * 0.8) * 1000;
 
     svgEl.setAttribute('viewBox', '0 0 100 100');
     svgEl.setAttribute('preserveAspectRatio', 'none');
     svgEl.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
 
-    const styleId = `morph-style-${i}`;
-    const style = document.createElement('style');
-    style.id = styleId;
-    style.textContent = `
-      @keyframes morph${i} {
-        from { d: path("${cfg.from}"); }
-        to   { d: path("${cfg.to}"); }
-      }
-      #morph-path-${i} {
-        animation: morph${i} ${duration}s ease-in-out infinite alternate;
-        will-change: d;
-      }
-    `;
-    document.head.appendChild(style);
-
     const pathEl = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    pathEl.id = `morph-path-${i}`;
     pathEl.setAttribute('fill', cfg.color);
     pathEl.setAttribute('opacity', '0.75');
     pathEl.setAttribute('d', cfg.from);
     svgEl.appendChild(pathEl);
+
+    const fromNums = extractNumbers(cfg.from);
+    const toNums = extractNumbers(cfg.to);
+    let startTime = null;
+
+    function animate(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const elapsed = (timestamp - startTime) % (duration * 2);
+      const t = elapsed < duration
+        ? elapsed / duration
+        : (duration * 2 - elapsed) / duration;
+
+      const nums = fromNums.map((from, j) => lerp(from, toNums[j], easeInOut(t)));
+      pathEl.setAttribute('d', buildPath(cfg.from, nums));
+
+      requestAnimationFrame(animate);
+    }
+
+    requestAnimationFrame(animate);
   });
 }
