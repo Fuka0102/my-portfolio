@@ -52,7 +52,7 @@ function initAll() {
   if (metaballCanvas && heroSection) initMetaball(metaballCanvas, heroSection);
 
   const contactCanvas  = document.querySelector('.js-contact-canvas');
-  const contactSection = contactCanvas?.closest('section');
+  const contactSection = contactCanvas ? contactCanvas.closest('section') : null;
   if (contactCanvas && contactSection) initMetaball(contactCanvas, contactSection);
 
   const worksCanvas = document.querySelector('.js-works-canvas');

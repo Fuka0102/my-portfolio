@@ -14,7 +14,7 @@ function initScrollAnimation(container) {
       });
     },
     {
-      threshold: 0.1,
+      threshold: 0,
       rootMargin: '0px',
     }
   );
@@ -23,7 +23,8 @@ function initScrollAnimation(container) {
     const rect = el.getBoundingClientRect();
     const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
     if (alreadyVisible) {
-      el.classList.add('is-visible');
+      // rAF で初期描画後に付与し、transition が確実に発火するようにする
+      requestAnimationFrame(() => el.classList.add('is-visible'));
     } else {
       observer.observe(el);
     }
