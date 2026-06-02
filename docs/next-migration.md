@@ -201,7 +201,7 @@ export type Work = {
 
 ---
 
-## 8. 環境変数
+## 9. 環境変数
 
 ```
 MICROCMS_SERVICE_DOMAIN=
@@ -210,7 +210,7 @@ MICROCMS_API_KEY=
 
 ---
 
-## 9. マイルストーン
+## 10. マイルストーン
 
 | フェーズ | 内容 |
 |---|---|
