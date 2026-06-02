@@ -6,6 +6,7 @@ export function initMetaball(canvas, container) {
     canvas.height = container.offsetHeight;
   }
   resize();
+  canvas.style.opacity = '1';
   window.addEventListener('resize', resize);
 
   const blobs = [
