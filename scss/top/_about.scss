@@ -190,7 +190,7 @@
 
 .about__card-text {
   font-family: $font-body;
-  font-size: 14px;
+  font-size: clamp(12px, 1.5vw, 14px);
   color: $color-text;
   line-height: 1.9;
   text-align: center;
