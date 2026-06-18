@@ -7,12 +7,13 @@
   --color-gray-bg: #E8EDF2;
   --color-text: #1A1A1A;
   --color-text-light: #666666;
+
+  --font-bricolage-grotesque: var(--bricolage-grotesque), sans-serif;
+  --font-noto-sans-jp: var(--noto-sans-jp), sans-serif;
+  --font-dm-sans: var(--dm-sans), sans-serif;
 }
 
 body {
   background: var(--color-white);
-}
-
-h1 {
-  font-family: var(--bricolage-grotesque), sans-serif;
+  font-family: var(--font-noto-sans-jp)
 }
