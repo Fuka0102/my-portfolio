@@ -1,16 +1,28 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Noto_Sans_JP, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const bricolageGrotesque = Bricolage_Grotesque({
+  weight: ['400', '800'],
+  display: 'swap',
+  preload: false,
+  variable: '--bricolage-grotesque'
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const notoSansJP = Noto_Sans_JP({
+  weight: ['400', '700'],
+  display: 'swap',
+  preload: false,
+  variable: '--noto-sans-jp'
 });
+
+const dMSans = DM_Sans({
+  weight: '400',
+  display: 'swap',
+  preload: false,
+  variable: '--dm-sans'
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`h-full antialiased ${bricolageGrotesque.variable} ${notoSansJP.variable} ${dMSans.variable}`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
