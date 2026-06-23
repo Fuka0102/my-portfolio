@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Noto_Sans_JP, DM_Sans } from "next/font/google";
 import "./globals.css";
+import  Header from '../components/Header/Header';
 
 const bricolageGrotesque = Bricolage_Grotesque({
   weight: ['400', '800'],
@@ -39,7 +40,7 @@ export default function RootLayout({
       lang="ja"
       className={`${bricolageGrotesque.variable} ${notoSansJP.variable} ${dMSans.variable}`}
     >
-      <body >{children}</body>
+      <body ><Header/>{children}</body>
     </html>
   );
 }
