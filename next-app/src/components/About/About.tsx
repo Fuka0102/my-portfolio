@@ -1,4 +1,5 @@
 import styles from '../../styles/components/About.module.scss';
+import Image from 'next/image';
 
 export default function About () {
     return (
@@ -20,7 +21,7 @@ export default function About () {
 
                     <div className={styles['about__cards']}>
                     <div className={`${styles['about__card']} js-fade`}>
-                        <img className={`${styles['about__card-svg']} ${styles['shape-a']}`} src="images/point1.svg" aria-hidden="true" />
+                        <Image className={`${styles['about__card-svg']} ${styles['shape-a']}`} src="/images/point1.svg" aria-hidden="true" width={286} height={248} alt="" />
                         <div className={styles['about__card-content']}>
                             <p className={styles['about__card-title']}>
                                 <span className={styles['about__card-num']}>01</span>仕様を超えてご提案
@@ -29,7 +30,7 @@ export default function About () {
                         </div>
                     </div>
                     <div className={`${styles['about__card']} js-fade`}>
-                        <img className={`${styles['about__card-svg']} ${styles['shape-b']}`} src="images/point2.svg" aria-hidden="true" />
+                        <Image className={`${styles['about__card-svg']} ${styles['shape-b']}`} src="/images/point2.svg" aria-hidden="true" width={286} height={248} alt="" />
                         <div className={styles['about__card-content']}>
                         <p className={styles['about__card-title']}>
                             <span className={styles['about__card-num']}>02</span>読まれるコードを書く
@@ -38,7 +39,7 @@ export default function About () {
                         </div>
                     </div>
                     <div className={`${styles['about__card']} js-fade`}>
-                        <img className={`${styles['about__card-svg']} ${styles['shape-c']}`} src="images/point3.svg" aria-hidden="true" />
+                        <Image className={`${styles['about__card-svg']} ${styles['shape-c']}`} src="/images/point3.svg" aria-hidden="true" width={286} height={248} alt="" />
                         <div className={styles['about__card-content']}>
                             <p className={styles['about__card-title']}>
                                 <span className={styles['about__card-num']}>03</span>課題発見＆仕組み化
