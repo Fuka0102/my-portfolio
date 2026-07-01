@@ -10,6 +10,7 @@ export default function Home() {
         <Hero />
         <WorksPreview />
         <About />
+        <Experience />
       </main>
     </div>
   );
