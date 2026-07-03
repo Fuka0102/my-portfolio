@@ -9,7 +9,7 @@ export default function Experience () {
                 <h2 className={styles['experience__heading']}>My Experiences</h2>
             </div>
 
-            <div className={`${styles['experience__list']} js-timeline`}>
+            <div className={styles['experience__list']}>
 
                 <div className={`${styles['experience__row']} ${styles['experience__row--current']} js-fade`}>
                 <div className={styles['experience__year']}>
@@ -20,7 +20,7 @@ export default function Experience () {
                     <span className={styles['experience__period']}>→ now</span>
                 </div>
                 <div className={styles['experience__dot-wrap']}>
-                    <span className={`${styles['experience__dot']} js-timeline-dot`} aria-hidden="true"></span>
+                    <span className={styles['experience__dot']} aria-hidden="true"></span>
                 </div>
                 <div className={styles['experience__card']}>
                     <p className={styles['experience__card-title']}>不動産・住宅情報サイトのフロント実装を担当</p>
@@ -37,7 +37,7 @@ export default function Experience () {
                     <span className={styles['experience__period']}>→ 2021 Dec</span>
                 </div>
                 <div className={styles['experience__dot-wrap']}>
-                    <span className={`${styles['experience__dot']} js-timeline-dot`} aria-hidden="true"></span>
+                    <span className={styles['experience__dot']} style={{ animationDelay: '0.4s' }} aria-hidden="true"></span>
                 </div>
                 <div className={styles['experience__card']}>
                     <p className={styles['experience__card-title']}>EC運営支援の制作部門でディレクター &amp; コーディングを担当</p>
@@ -54,7 +54,7 @@ export default function Experience () {
                     <span className={styles['experience__period']}>→ 2018 Oct</span>
                 </div>
                 <div className={styles['experience__dot-wrap']}>
-                    <span className={`${styles['experience__dot']} js-timeline-dot`} aria-hidden="true"></span>
+                    <span className={styles['experience__dot']} style={{ animationDelay: '0.8s' }} aria-hidden="true"></span>
                 </div>
                 <div className={styles['experience__card']}>
                     <p className={styles['experience__card-title']}>新卒で営業職に就くが、クリエイティブ職への興味から業種転換</p>
