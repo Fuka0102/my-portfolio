@@ -169,7 +169,7 @@ export default function Contact() {
         aria-hidden="true"
         ref={canvasRef}
       ></canvas>
-      <div className="inner">
+      <div className='inner inner--contact'>
         <div className={`${styles['contact__heading-wrap']} js-fade`}>
           <span className={styles['contact__heading-dot']} aria-hidden="true"></span>
           <h2 className={styles['contact__heading']}>Contact</h2>
