@@ -5,3 +5,4 @@ css/
 node_modules/
 .portfolio-metaball.html
 .vscode
+.claude/notes/useeffect-raf-cleanup.md
