@@ -12,17 +12,25 @@ type Points = {
     description: string;
 }
 
+type CategoryModifier = Record<'LP' | 'バナー' , string>;
+export const categoryModifier: CategoryModifier = {
+    LP: "lp",
+    バナー: "banner"
+};
+
 export type Work = MicroCMSListContent & {
     title: string;
-    slug?: string;
-    thumbnail?: Image;
-    category?: string[];
-    period?: string;
-    scope?: string;
-    hours?: string;
-    tools?: string[];
-    detail_images?: Image[];
-    description?: string;
-    points?: Points[];
+    slug: string;
+    thumbnail: Image;
+    category: ('LP' | 'バナー')[];
+    period: string;
+    scope: string;
+    hours: string;
+    tools: string[];
+    detail_images: Image[];
+    description: string;
+    points: Points[];
     url?: string;
+    summary: string;
 }
+

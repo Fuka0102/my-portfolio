@@ -6,6 +6,11 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(__dirname), 
   },
+  images: {
+    remotePatterns: [
+      new URL('https://images.microcms-assets.io/assets/**/**.png'),
+    ],
+  },
 };
 
 export default nextConfig;
