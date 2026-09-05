@@ -6,7 +6,7 @@ type Image = {
     width: number;
 }
 
-type Points = {
+export type Points = {
     fieldId: 'points';
     check?: Image;
     description: string;
@@ -29,7 +29,7 @@ export type Work = MicroCMSListContent & {
     tools: string[];
     detail_images: Image[];
     description: string;
-    points: Points[];
+    points: string;
     url?: string;
     summary: string;
 }

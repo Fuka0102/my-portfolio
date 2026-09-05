@@ -1,5 +1,5 @@
 import { createClient } from 'microcms-js-sdk';
-import { Work } from '../types/works';
+import { Work, Points } from '@/types/works';
 
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
     throw new Error('MICROCMS_SERVICE_DOMAIN is required');
@@ -18,6 +18,16 @@ function isWork (value: unknown): value is Work  {
     return typeof value === 'object' && value !== null && 'id' in value && typeof value.id === 'string';
 }
 
+function isPointsArray(value: unknown): value is Points[] {
+  if(!Array.isArray(value)) {
+    return false;
+  };
+
+  return value.every((item) => {
+    return 'fieldId' in item && item.fieldId === 'points' && 'description' in item && typeof item.description === 'string';
+  });
+}
+
 export async function getWorks() {
     const data = await client.getList<Work>({
         endpoint: 'my-works',
@@ -26,6 +36,10 @@ export async function getWorks() {
     return data.contents.filter(isWork);
 }
 
+type WorkWithParsedPoints = Omit<Work, 'points'> & {
+  points: Points[];
+};
+
 export async function getWork(slug: string) {
     const data = await client.getList<Work>({
         endpoint: 'my-works',
@@ -33,10 +47,27 @@ export async function getWork(slug: string) {
             filters: `slug[equals]${slug}`,
         },
     });
-    const  workData = data.contents[0];
+    const workData = data.contents[0];
 
     if (!workData || isWork(workData) === false) {
         throw new Error(`Work with slug "${slug}" not found`);
     }
-    return workData;
+
+    let pointsData: unknown;
+    try {
+        pointsData = JSON.parse(workData.points);
+    } catch (error) {
+        throw new Error(`Error fetching work with slug "${slug}": ${error}`);
+    }
+
+    if (!isPointsArray(pointsData)) {
+        throw new Error(`Points data for work with slug "${slug}" is not in the expected format`);
+    }
+
+    const workWithPoints: WorkWithParsedPoints = {
+        ...workData,
+        points: pointsData,
+    };
+
+    return workWithPoints;
 }
