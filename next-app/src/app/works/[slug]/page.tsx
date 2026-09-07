@@ -1,6 +1,7 @@
 import { getWork } from '@/lib/microcms';
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from "../../../styles/components/WorkDetail.module.scss";
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -10,10 +11,9 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         return null;
     }
 
-
     return (
     <>
-        <h2 className="works-hero__title js-fade">{data.title}</h2>
+        <h2 className={`${styles[`works-hero__title`]} js-fade`}>{data.title}</h2>
 
         <section className="works-detail">
             <div className="inner">
@@ -37,9 +37,11 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
                 </div>
             </div>
 
-            <div className="works-detail__card js-fade">
-                {/* <Image className="works-detail__card-img" src={data.detail_images} alt={data.title} /> */}
-            </div>
+            {data.detail_images.length > 0 && (
+                <div className="works-detail__card js-fade">
+                    <Image className="works-detail__card-img" src={data.detail_images[0].url} alt={data.title} width={data.detail_images[0].width} height={data.detail_images[0].height} />
+                </div>
+            )}
 
             {data.url && (
                 <Link className="works-detail__btn js-fade" href={data.url} target="_blank" rel="noopener noreferrer">
