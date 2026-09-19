@@ -12,9 +12,10 @@ export type Points = {
     description: string;
 }
 
-type CategoryModifier = Record<'LP' | 'バナー' , string>;
+type CategoryModifier = Record<'LP' | 'Webサイト' | 'バナー' , string>;
 export const categoryModifier: CategoryModifier = {
     LP: "lp",
+    Webサイト: "web",
     バナー: "banner"
 };
 
@@ -22,7 +23,7 @@ export type Work = MicroCMSListContent & {
     title: string;
     slug: string;
     thumbnail: Image;
-    category: ('LP' | 'バナー')[];
+    category: ('LP' | 'Webサイト' | 'バナー')[];
     period: string;
     scope: string;
     hours: string;
