@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 export const useScrollAnimation = (containerRef: React.RefObject<HTMLElement>) => {
 
     useEffect(() => {
-        console.log('containerRef:', containerRef);
         const targets = containerRef.current?.querySelectorAll(".js-fade");
         if (!targets.length) return;
 
