@@ -1,38 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
 
-export default function ScrollAnimationProvider() {
-  useEffect(() => {
-    const targets = document.body.querySelectorAll(".js-fade");
-    if (!targets.length) return;
+import {useScrollAnimation} from "../hooks/useScrollAnimation";
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0,
-        rootMargin: "0px",
-      },
-    );
-
-    targets.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
-      if (alreadyVisible) {
-        // rAF で初期描画後に付与し、transition が確実に発火するようにする
-        requestAnimationFrame(() => el.classList.add("is-visible"));
-      } else {
-        observer.observe(el);
-      }
-    });
-  }, []);
+export default function ScrollAnimationProvider({ containerRef }: { containerRef: React.RefObject<HTMLElement> }) {
+  useScrollAnimation(containerRef);
 
   return null;
 }

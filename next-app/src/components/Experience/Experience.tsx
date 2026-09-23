@@ -1,8 +1,14 @@
+'use client';
+import { useRef } from 'react';
+import ScrollAnimationProvider from '../ScrollAnimationProvider';
 import styles from '../../styles/components/Experience.module.scss';
 
 export default function Experience () {
+    const sectionRef = useRef<HTMLElement>(null!);
+
     return (
-        <section className={styles.experience} id="experience">
+        <section className={styles.experience} id="experience" ref={sectionRef}>
+            <ScrollAnimationProvider containerRef={sectionRef} />
             <div className="inner">
             <div className={`${styles['experience__heading-wrap']} js-fade`}>
                 <span className={styles['experience__heading-dot']} aria-hidden="true"></span>

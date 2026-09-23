@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react';
 import styles from '../../styles/components/About.module.scss';
 import Image from 'next/image';
+import ScrollAnimationProvider from '../ScrollAnimationProvider';
 
 const MORPH_CONFIGS = [
         {
@@ -23,7 +24,7 @@ const MORPH_CONFIGS = [
     ];
 
 export default function About () {
-    const sectionRef = useRef<HTMLElement>(null);
+    const sectionRef = useRef<HTMLElement>(null!);
 
     useEffect(() => {
         const cleanUps: (() => void)[] = [];
@@ -121,6 +122,7 @@ export default function About () {
 
     return (
         <section className={styles.about} id="about" ref={sectionRef}>
+            <ScrollAnimationProvider containerRef={sectionRef} />
             <div className="inner">
                 <div className={`${styles['about__heading-wrap']} js-fade`}>
                     <span className={styles['about__heading-dot']} aria-hidden="true"></span>

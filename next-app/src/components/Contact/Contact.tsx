@@ -4,9 +4,10 @@ import { useRef, useEffect } from "react";
 import styles from "../../styles/components/Contact.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import ScrollAnimationProvider from "../ScrollAnimationProvider";
 
 export default function Contact() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null!);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect (() => {
@@ -164,6 +165,7 @@ export default function Contact() {
 
   return (
     <section className={styles.contact} id="contact" ref={sectionRef}>
+      <ScrollAnimationProvider containerRef={sectionRef} />
       <canvas
         className={`${styles['contact__canvas']} js-contact-canvas`}
         aria-hidden="true"

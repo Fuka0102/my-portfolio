@@ -3,12 +3,14 @@
 import {useRef} from 'react';
 import styles from '../../styles/components/Hero.module.scss';
 import MetaballCanvas from '../MetaballCanvas/MetaballCanvas';
+import ScrollAnimationProvider from '../ScrollAnimationProvider';
 
 export default function Hero () {
-    const sectionRef = useRef<HTMLElement>(null);
+    const sectionRef = useRef<HTMLElement>(null!);
 
     return (
         <section className={`${styles.hero} js-hero`} id="hero" ref={sectionRef}>
+            <ScrollAnimationProvider containerRef={sectionRef} />
             <MetaballCanvas targetSection={sectionRef} />
             <div className={styles.inner}>
             <div className={`${styles['hero__content']} js-fade`}>
