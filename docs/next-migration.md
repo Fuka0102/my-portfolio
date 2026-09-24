@@ -152,6 +152,34 @@ type Awaited<T> = T extends Promise<infer U> ? U : T
 
 > **考えてみて**: `infer` はどんな場面で使うと便利？ APIクライアントの返り値型をどう汎用化する？
 
+##### 実践メモ（復習用）：`works/[slug]` で使った例
+
+`microcms.ts`の`getWork()`は、`points`（JSON文字列）を`JSON.parse`して`Points[]`に変換した`WorkWithParsedPoints`という型を返す。でもこの型は`export`されていなかった。
+
+`WorkDetail.tsx`側で愚直に`Work`型をpropsの型に使うと、実際に渡ってくる値（`points`が配列）と食い違ってTSエラーになる：
+
+```
+Type 'WorkWithParsedPoints' is not assignable to type 'Work'.
+  Types of property 'points' are incompatible.
+    Type 'Points[]' is not assignable to type 'string'.
+```
+
+これを`WorkWithParsedPoints`をexportして使う代わりに、関数の戻り値から型を直接抽出して解決した：
+
+```ts
+// WorkDetail.tsx
+import { getWork } from '@/lib/microcms';
+
+function WorkDetail({ data }: { data: Awaited<ReturnType<typeof getWork>> }) {
+  // data.points は Points[] として正しく型付けされる
+}
+```
+
+- `ReturnType<typeof getWork>` → `getWork`の戻り値の型を抽出（`getWork`は`async`なので`Promise<WorkWithParsedPoints>`になる）
+- `Awaited<...>` → `Promise`を解決した後の型を取り出す（`WorkWithParsedPoints`）
+
+**ポイント**：呼び出し先の型を毎回exportして使い回さなくても、「その関数が実際に返す型」を`ReturnType`/`Awaited`で直接引っ張ってこられる。実装（`getWork`の中身）が変わっても、この書き方なら型定義を二重管理せずに自動で追従する。
+
 #### 3. Discriminated Unions（タグ付きユニオン）
 
 ```ts
