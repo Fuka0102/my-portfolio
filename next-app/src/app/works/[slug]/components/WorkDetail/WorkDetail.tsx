@@ -5,16 +5,21 @@ import { getWork } from '@/lib/microcms';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from "../../../../../styles/components/WorkDetail.module.scss";
+import MetaballCanvas from '../../../../../components/MetaballCanvas/MetaballCanvas';
 import ScrollAnimationProvider from '../../../../../components/ScrollAnimationProvider';
 
 export default function WorkDeatil({ data }: { data: Awaited<ReturnType<typeof getWork>> }) {
      const sectionRef = useRef<HTMLDivElement>(null!);
+     
 
     return (
       <div ref={sectionRef}>
         <ScrollAnimationProvider containerRef={sectionRef} />
+        <div className={styles['works-bg']}>
+          <MetaballCanvas targetSection={sectionRef} />
+        </div>
           <section className={styles['works-hero']}>
-                <div className={styles['inner']}>
+                <div className={`inner ${styles['works-hero__inner']}`}>
                 <div className={`${styles['works-hero__heading-wrap']} js-fade`}>
                     <span className={styles['works-hero__heading-dot']} aria-hidden="true"></span>
                     <h1 className={styles['works-hero__heading']}>My Works</h1>
@@ -24,7 +29,7 @@ export default function WorkDeatil({ data }: { data: Awaited<ReturnType<typeof g
             </section>
            
              <section className={styles['works-detail']}>
-                <div className={styles['inner']}>
+                <div className={`inner ${styles['works-detail__inner']}`}>
     
                 <div className={`${styles['works-detail__meta']} js-fade`}>
                     <div className={styles['works-detail__meta-item']}>
@@ -33,15 +38,15 @@ export default function WorkDeatil({ data }: { data: Awaited<ReturnType<typeof g
                     </div>
                     <div className={styles['works-detail__meta-item']}>
                     <p className={styles['works-detail__meta-label']}>制作範囲</p>
-                    <p className={styles['works-detail__meta-value']}>{data.scope}</p>
+                    <div className={styles['works-detail__meta-value']} dangerouslySetInnerHTML={{ __html: data.scope }} />
                     </div>
                     <div className={styles['works-detail__meta-item']}>
                     <p className={styles['works-detail__meta-label']}>制作時間</p>
-                    <p className={styles['works-detail__meta-value']}>{data.hours}</p>
+                    <div className={styles['works-detail__meta-value']} dangerouslySetInnerHTML={{ __html: data.hours }} />
                     </div>
                     <div className={styles['works-detail__meta-item']}>
                     <p className={styles['works-detail__meta-label']}>技術・ツール</p>
-                    <p className={styles['works-detail__meta-value']}>{data.tools}</p>
+                    <p className={styles['works-detail__meta-value']}>{(data.tools).join(' / ')}</p>
                     </div>
                 </div>
     
@@ -57,9 +62,7 @@ export default function WorkDeatil({ data }: { data: Awaited<ReturnType<typeof g
                     </Link>
                 )}
     
-                <p className={`${styles['works-detail__desc']} js-fade`}>
-                    {data.description}
-                </p>
+                <div className={`${styles['works-detail__desc']} js-fade`} dangerouslySetInnerHTML={{ __html: data.description }} />
     
                 <div className={`${styles['works-detail__points']} js-fade`}>
                     <p className={styles['works-detail__points-title']}>こだわりポイント</p>
