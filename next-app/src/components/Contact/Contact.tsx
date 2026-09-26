@@ -193,9 +193,6 @@ export default function Contact() {
           Contact Here
         </Link>
       </div>
-      <footer className={styles['contact__footer']}>
-        <p>© 2026 TANAKA FUKA</p>
-      </footer>
     </section>
   );
 }
