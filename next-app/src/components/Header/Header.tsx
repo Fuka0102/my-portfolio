@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 import styles from '../../styles/components/Header.module.scss';
-import Image from 'next/image'
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Header () {
     const [isScrolling, setIsScrolling] = useState(false);
@@ -65,14 +66,20 @@ export default function Header () {
 
     return (
         <header className={`${styles.header} ${ isScrolling && !isInHero ? styles['is-hidden'] : ''} js-header`} ref={headerRef}>
-            <a className={styles['header__logo']} href="#">
+            <Link href="/" className={styles['header__logo']}>
                 <span className={styles['header__logo-dot']} aria-hidden="true"></span>
                 <span className={styles['header__logo-text']}>TANAKA FUKA</span>
-            </a>
+            </Link>
             <nav className={styles['header__nav']}>
-                <a className={styles['header__nav-link']} href="#works">My Works</a>
-                <a className={styles['header__nav-link']} href="#about">About Me</a>
-                <a className={styles['header__nav-link']} href="#experience">My Experiences</a>
+                <Link href="/#works" className={styles['header__nav-link']}>
+                    My Works
+                </Link>
+                <Link href="/#about" className={styles['header__nav-link']}>
+                    About Me
+                </Link>
+                <Link href="/#experience" className={styles['header__nav-link']}>
+                    My Experiences
+                </Link>
             </nav>
             <a className={styles['header__contact-btn']} href="https://forms.gle/HtUP9WXgkUYSV5Vy9" target="_blank" rel="noopener noreferrer">
                 <Image className={styles['header__contact-btn-icon']} src="/images/contact.svg" alt="" width="50" height="50" aria-hidden="true" />
