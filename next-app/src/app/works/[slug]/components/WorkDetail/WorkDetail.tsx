@@ -10,13 +10,13 @@ import ScrollAnimationProvider from '../../../../../components/ScrollAnimationPr
 
 export default function WorkDeatil({ data }: { data: Awaited<ReturnType<typeof getWork>> }) {
      const sectionRef = useRef<HTMLDivElement>(null!);
-     
+     const bgRef = useRef<HTMLDivElement>(null!);
 
     return (
       <div ref={sectionRef}>
         <ScrollAnimationProvider containerRef={sectionRef} />
-        <div className={styles['works-bg']}>
-          <MetaballCanvas targetSection={sectionRef} />
+        <div className={styles['works-bg']} ref={bgRef}>
+          <MetaballCanvas targetSection={bgRef} />
         </div>
           <section className={styles['works-hero']}>
                 <div className={`inner ${styles['works-hero__inner']}`}>
